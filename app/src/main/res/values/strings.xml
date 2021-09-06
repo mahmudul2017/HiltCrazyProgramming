@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hilt Crazy Programming</string>
+
+    <string name="net_error_msg">Please check Your internet connection!</string>
+</resources>
