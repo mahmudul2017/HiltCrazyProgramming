@@ -1,6 +1,7 @@
 package com.hilt.crazyprogramming.viewModel
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -15,25 +16,18 @@ import com.hilt.crazyprogramming.network.ApiSuccessResponse
 import com.hilt.crazyprogramming.repository.UserRepository
 import com.hilt.crazyprogramming.utlis.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(private val userRepository: UserRepository): ViewModel() {
-    val userValue = MutableLiveData<List<User>>()
-
-    /*suspend fun getViewModelPost(): LiveData<List<User>> {
-        val response = userRepository.getUserRepo()
-        userValue.value =
-        return userValue
-        Log.d("response", userValue.toString())
-    }*/
+class UserViewModel @Inject constructor(@ApplicationContext application: Context, private val userRepository: UserRepository): BaseViewModel(application as Application) {
 
     fun getViewModelUser(): LiveData<List<User>> {
         val user = MutableLiveData<List<User>>()
 
-        /*if (checkNetworkStatus()) {*/
-            //apiCallStatus.postValue("LOADING")
+        if (checkNetworkStatus()) {
+            apiCallStatus.postValue("LOADING")
 
             viewModelScope.launch {
                 when (val apiResponse = ApiResponse.create(userRepository.getUserRepo())) {
@@ -52,7 +46,7 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
                     }
                 }
             }
-        //}
+        }
         Log.d("ViewModelUser", user.toString())
         return user
     }
