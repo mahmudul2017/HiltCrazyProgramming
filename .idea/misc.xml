@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/rounded_bg_error.xml" value="0.2964102564102564" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/activity_postbyid.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/toast_custom_error.xml" value="0.28489583333333335" />
       </map>
     </option>

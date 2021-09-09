@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hilt.crazyprogramming">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".dInjector.HiltApplication"
@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HiltCrazyProgramming">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.PostByIdActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.UserActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,4 +26,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

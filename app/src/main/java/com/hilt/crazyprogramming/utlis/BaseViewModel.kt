@@ -1,11 +1,12 @@
 package com.hilt.crazyprogramming.utlis
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hilt.crazyprogramming.R
 
-open class BaseViewModel constructor(val context: Application) : ViewModel() {
+open class BaseViewModel(private val context: Application) : ViewModel() {
 
     val apiCallStatus: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
