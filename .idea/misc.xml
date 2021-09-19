@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_comment.xml" value="0.28703703703703703" />
+        <entry key="app/src/main/res/drawable/ic_password.xml" value="0.28703703703703703" />
         <entry key="app/src/main/res/drawable/rounded_bg_error.xml" value="0.2964102564102564" />
+        <entry key="app/src/main/res/drawable/rounded_button.xml" value="0.28703703703703703" />
+        <entry key="app/src/main/res/drawable/rounded_edittext.xml" value="0.28703703703703703" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/activity_postbyid.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/toast_custom_error.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/toast_custom_green.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16666666666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>
