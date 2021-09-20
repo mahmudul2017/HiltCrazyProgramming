@@ -69,11 +69,11 @@ dependencies {
     // - - CardView
     implementation "androidx.cardview:cardview:1.0.0"
 
-    /*// Room and Architectural Components
+    // Room and Architectural Components
     def room_version = "2.2.1"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"*/
+    kapt "androidx.room:room-compiler:$room_version"
 
     // Gson for Json
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -90,4 +90,7 @@ dependencies {
 
     // Activity KTX for viewModels()
     implementation "androidx.activity:activity-ktx:1.1.0"
+
+    // Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
