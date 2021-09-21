@@ -24,4 +24,12 @@ class LoginViewModel: ViewModel() {
         liveDataUserList = LoginRepository.getUserListsRepo(context)
         return liveDataUserList
     }
+
+    fun deleteUserVM(context: Context, loginUser: LoginUser) {
+        LoginRepository.deleteUserRepo(context, loginUser)
+    }
+
+    fun deleteUserListsVM(context: Context) {
+        LoginRepository.deleteUserListsRepo(context)
+    }
 }

@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.util.Log.d
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,11 +36,11 @@ class SplashFragment : Fragment() {
     private lateinit var password: String
     private lateinit var comment: String
 
-    //private lateinit var context: Context
     private lateinit var loginViewModel: LoginViewModel
 
     private lateinit var alertProfileDialog: AlertDialog
     private var imageBitmap: Bitmap? = null
+    var bitmap: Bitmap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +53,6 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //context = this@SplashActivity
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         imgPicker.setOnClickListener {
@@ -83,6 +83,8 @@ class SplashFragment : Fragment() {
         }
 
         btnUserList.setOnClickListener {
+            //loginViewModel.deleteUserListsVM(requireContext())
+
             loginViewModel.getUserListsVM(requireContext())?.observe(viewLifecycleOwner, Observer {
                 Log.d("userData", it.toString())
             })
@@ -99,8 +101,7 @@ class SplashFragment : Fragment() {
                     lblReadResponse.text = "Data Not Found"
                     lblUseraname.text = "- - -"
                     lblPassword.text = "- - -"
-                }
-                else {
+                 } else {
                     lblUseraname.text = it.userName
                     lblPassword.text = it.password
 
@@ -128,13 +129,12 @@ class SplashFragment : Fragment() {
         imgCamera.setOnClickListener {
             if (checkAndRequestPermissions()) {
                 takePictureFromCamera()
-                //alertDialogProfilePicture.cancel()
+                d("imgCamera", "imgCamera called")
             }
         }
 
         imgGallery.setOnClickListener {
             takePictureFromGallery()
-            //alertDialogProfilePicture.cancel()
         }
 
         alertProfileDialog = builder.create()
@@ -148,11 +148,17 @@ class SplashFragment : Fragment() {
 
     private fun checkAndRequestPermissions(): Boolean {
         if (Build.VERSION.SDK_INT >= 23) {
-            val cameraPermission =
-                ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+            val cameraPermission = ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
             if (cameraPermission == PackageManager.PERMISSION_DENIED) {
-                ActivityCompat.requestPermissions(
+                // this method is called only activity
+                /* ActivityCompat.requestPermissions(
                     requireContext() as Activity,
+                    arrayOf(Manifest.permission.CAMERA),
+                    20
+                ) */
+
+                // this method is called only fragment
+                requestPermissions(
                     arrayOf(Manifest.permission.CAMERA),
                     20
                 )
@@ -171,6 +177,7 @@ class SplashFragment : Fragment() {
 
         if(requestCode == 20 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
             takePictureFromCamera()
+            alertProfileDialog.cancel()
         } else {
             Toast.makeText(requireContext(), "Permission not Granted", Toast.LENGTH_SHORT).show();
         }
@@ -189,6 +196,8 @@ class SplashFragment : Fragment() {
             1 -> if (resultCode === AppCompatActivity.RESULT_OK) {
                 alertProfileDialog.cancel()
                 val selectedImageUri: Uri? = intent!!.data
+                val selectedImageBitmap = uriToBitmapConverter(selectedImageUri!!)
+                imageBitmap = selectedImageBitmap
                 imgProfile.setImageURI(selectedImageUri)
             }
             2 -> if (resultCode === AppCompatActivity.RESULT_OK) {
@@ -201,9 +210,9 @@ class SplashFragment : Fragment() {
         }
     }
 
-    private fun uriToBitmapConverter(imageUri: Uri) {
-        var bitmap: Bitmap? = null
+    private fun uriToBitmapConverter(imageUri: Uri): Bitmap {
         val contentResolver = requireActivity().contentResolver
+
         try {
             bitmap = if (Build.VERSION.SDK_INT < 28) {
                 MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
@@ -214,5 +223,6 @@ class SplashFragment : Fragment() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        return bitmap!!
     }
 }

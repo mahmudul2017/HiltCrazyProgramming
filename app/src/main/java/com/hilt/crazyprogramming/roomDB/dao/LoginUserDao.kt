@@ -1,10 +1,7 @@
 package com.hilt.crazyprogramming.roomDB.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.hilt.crazyprogramming.roomDB.model.LoginUser
 
 @Dao
@@ -17,4 +14,10 @@ interface LoginUserDao {
 
     @Query("SELECT * FROM HiltLogIn")
     fun getUserLists(): LiveData<List<LoginUser>>
+
+    @Delete
+    fun deleteUser(loginUser: LoginUser)
+
+    @Query("DELETE FROM HiltLogIn")
+    fun deleteUserList()
 }

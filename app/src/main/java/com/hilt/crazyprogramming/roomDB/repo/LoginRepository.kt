@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
 class LoginRepository {
+
     companion object {
         var loginDatabase: LoginDatabase? = null
 
@@ -41,6 +42,18 @@ class LoginRepository {
 
             loginAllUsers = loginDatabase!!.loginUserDao().getUserLists()
             return loginAllUsers
+        }
+
+        fun deleteUserRepo(context: Context, loginUser: LoginUser) {
+            loginDatabase = initializeDB(context)
+
+            loginDatabase!!.loginUserDao().deleteUser(loginUser)
+        }
+
+        fun deleteUserListsRepo(context: Context) {
+            loginDatabase = initializeDB(context)
+
+            loginDatabase!!.loginUserDao().deleteUserList()
         }
     }
 }

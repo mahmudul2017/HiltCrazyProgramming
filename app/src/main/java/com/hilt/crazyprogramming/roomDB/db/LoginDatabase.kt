@@ -17,7 +17,7 @@ abstract class LoginDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: LoginDatabase? = null
 
-        val migration_1_2: Migration = object : Migration(1, 2) {
+        private val migration_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE HiltLogIn ADD COLUMN userpic TEXT DEFAULT ''")
             }
@@ -31,6 +31,7 @@ abstract class LoginDatabase: RoomDatabase() {
                     .databaseBuilder(context, LoginDatabase::class.java, "HILT_DATABASE")
                     //.fallbackToDestructiveMigration()
                     .addMigrations(migration_1_2)
+                    .allowMainThreadQueries()
                     .build()
 
                 return INSTANCE!!
