@@ -1,5 +1,6 @@
 package com.hilt.crazyprogramming.roomDB.model
 
+import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -13,7 +14,10 @@ data class LoginUser(
     var password: String?,
 
     @ColumnInfo(name = "comment")
-    var comment: String?
+    var comment: String?,
+
+    @ColumnInfo(name = "userpic")
+    var userPic: Bitmap?
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

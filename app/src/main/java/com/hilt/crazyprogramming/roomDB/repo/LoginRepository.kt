@@ -1,6 +1,7 @@
 package com.hilt.crazyprogramming.roomDB.repo
 
 import android.content.Context
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import com.hilt.crazyprogramming.roomDB.db.LoginDatabase
 import com.hilt.crazyprogramming.roomDB.model.LoginUser
@@ -19,11 +20,11 @@ class LoginRepository {
             return LoginDatabase.getDataBaseClient(context)
         }
 
-        fun insertData(context: Context, username: String, password: String, comment: String) {
+        fun insertData(context: Context, username: String, password: String, comment: String, image: Bitmap) {
             loginDatabase = initializeDB(context)
 
             CoroutineScope(IO).launch {
-                var userInfo = LoginUser(username, password, comment)
+                var userInfo = LoginUser(username, password, comment, image)
                 loginDatabase!!.loginUserDao().insertLoginData(userInfo)
             }
         }

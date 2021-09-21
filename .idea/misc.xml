@@ -12,8 +12,11 @@
         <entry key="app/src/main/res/layout/activity_postbyid.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/dialog_profile_pic.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_userlist.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/layout/toast_custom_error.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/toast_custom_green.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/user_list_row.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16666666666666666" />
       </map>
