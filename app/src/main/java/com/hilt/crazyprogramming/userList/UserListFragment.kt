@@ -23,7 +23,6 @@ class UserListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_userlist, container, false)
     }
 
@@ -32,7 +31,19 @@ class UserListFragment : Fragment() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        loginViewModel.getUserListsVM(requireContext())?.observe(viewLifecycleOwner, Observer { userList ->
+        var userLists = loginViewModel.getUserListsVM(requireContext())
+        Log.d("userList", userLists.toString())
+
+        userListAdapter = UserListAdapter(requireContext(), userLists as ArrayList<LoginUser>, object : UserListAdapter.OnItemClickListener {
+            override fun onItemClick(user: LoginUser?) {
+                showErrorToast(requireContext(), "${user!!.userName}")
+                Log.d("userData", userLists.toString())
+            }
+        })
+        userRecycler.layoutManager = LinearLayoutManager(requireContext())
+        userRecycler.adapter = userListAdapter
+
+        /*loginViewModel.liveDataUserList!!.observe(viewLifecycleOwner, Observer { userList ->
             if (userList != null) {
                 userListAdapter = UserListAdapter(requireContext(), userList as ArrayList<LoginUser>, object : UserListAdapter.OnItemClickListener {
                     override fun onItemClick(user: LoginUser?) {
@@ -45,6 +56,6 @@ class UserListFragment : Fragment() {
             } else {
                 // No data found
             }
-        })
+        })*/
     }
 }

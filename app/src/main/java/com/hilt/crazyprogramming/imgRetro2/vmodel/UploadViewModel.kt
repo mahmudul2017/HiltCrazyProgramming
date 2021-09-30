@@ -1,19 +1,17 @@
-package com.hilt.crazyprogramming.viewModel
+package com.hilt.crazyprogramming.imgRetro2.vmodel
 
 import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hilt.crazyprogramming.model.user.User
+import com.hilt.crazyprogramming.imgRetro2.model.PostUser
+import com.hilt.crazyprogramming.imgRetro2.repo.UploadRepository
 import com.hilt.crazyprogramming.network.ApiEmptyResponse
 import com.hilt.crazyprogramming.network.ApiErrorResponse
 import com.hilt.crazyprogramming.network.ApiResponse
 import com.hilt.crazyprogramming.network.ApiSuccessResponse
-import com.hilt.crazyprogramming.repository.UserRepository
-import com.hilt.crazyprogramming.session.SharedPrefVMSession
 import com.hilt.crazyprogramming.utlis.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -21,25 +19,19 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(@ApplicationContext application: Context, private val userRepository: UserRepository, private val sharedPrefVMSession: SharedPrefVMSession): BaseViewModel(application as Application) {
+class UploadViewModel @Inject constructor(@ApplicationContext context: Context, private val uploadRepository: UploadRepository): BaseViewModel(context as Application) {
+    val postUserInfo = MutableLiveData<PostUser>()
 
-    fun getViewModelUser(): LiveData<List<User>> {
-        val user = MutableLiveData<List<User>>()
-        // val prefVmValue = MutableLiveData<String>()
-
+    fun postUserViewModel(postUser: PostUser): LiveData<PostUser> {
         if (checkNetworkStatus()) {
             apiCallStatus.postValue("LOADING")
 
             viewModelScope.launch {
-                when (val apiResponse = ApiResponse.create(userRepository.getUserRepo())) {
+                when (val apiResponse = ApiResponse.create(uploadRepository.postUserRepo(postUser))) {
                     is ApiSuccessResponse -> {
                         apiCallStatus.postValue("SUCCESS")
-                        user.postValue(apiResponse.body)
-                        //Log.d("response", apiResponse.toString())
-
-                        val prefVmValue = apiResponse.body[0].email
-                        sharedPrefVMSession.savePrefVm(prefVmValue)
-                        Log.d("response", "$apiResponse : $prefVmValue")
+                        postUserInfo.postValue(apiResponse.body)
+                        Log.d("response", apiResponse.toString())
                     }
                     is ApiErrorResponse -> {
                         apiCallStatus.postValue("ERROR")
@@ -52,7 +44,7 @@ class UserViewModel @Inject constructor(@ApplicationContext application: Context
                 }
             }
         }
-        Log.d("ViewModelUser", user.toString())
-        return user
+        Log.d("PostUserVM", postUserInfo.toString())
+        return postUserInfo
     }
 }

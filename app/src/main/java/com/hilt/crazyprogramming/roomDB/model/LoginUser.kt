@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "HiltLogIn")
+@Entity(tableName = "HiltDatabase")
 data class LoginUser(
     @ColumnInfo(name = "username")
     var userName: String?,
@@ -16,8 +16,8 @@ data class LoginUser(
     @ColumnInfo(name = "comment")
     var comment: String?,
 
-    @ColumnInfo(name = "userpic")
-    var userPic: Bitmap?
+    @ColumnInfo(name = "userImage", typeAffinity = ColumnInfo.BLOB)
+    var userPic: ByteArray?
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

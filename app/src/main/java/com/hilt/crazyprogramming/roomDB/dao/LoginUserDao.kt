@@ -7,17 +7,20 @@ import com.hilt.crazyprogramming.roomDB.model.LoginUser
 @Dao
 interface LoginUserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLoginData(loginUser: LoginUser)
+    fun insertLoginData(loginUser: LoginUser)
 
-    @Query("SELECT * FROM HiltLogIn WHERE username = :username")
+    @Query("SELECT * FROM HiltDatabase WHERE username = :username")
     fun getLoginDetails(username: String): LiveData<LoginUser>
 
-    @Query("SELECT * FROM HiltLogIn")
-    fun getUserLists(): LiveData<List<LoginUser>>
+    /*@Query("SELECT * FROM HiltLogIn")
+    fun getUserLists(): LiveData<List<LoginUser>>*/
+
+    @Query("SELECT * FROM HiltDatabase")
+    fun getUserLists(): List<LoginUser>
 
     @Delete
     fun deleteUser(loginUser: LoginUser)
 
-    @Query("DELETE FROM HiltLogIn")
+    @Query("DELETE FROM HiltDatabase")
     fun deleteUserList()
 }

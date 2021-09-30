@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_splashFragment_to_userListFragment"
             app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
         android:name="com.hilt.crazyprogramming.userList.UserListFragment"
         android:label="fragment_userlist"
         tools:layout="@layout/fragment_userlist" />
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.hilt.crazyprogramming.imgRetro2.view.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" />
 </navigation>

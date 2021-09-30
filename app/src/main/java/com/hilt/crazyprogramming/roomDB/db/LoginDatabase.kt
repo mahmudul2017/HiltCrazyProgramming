@@ -8,8 +8,7 @@ import com.hilt.crazyprogramming.roomDB.bitmap.BitmapConverter
 import com.hilt.crazyprogramming.roomDB.dao.LoginUserDao
 import com.hilt.crazyprogramming.roomDB.model.LoginUser
 
-@Database(entities = [LoginUser::class], version = 3, exportSchema = false)
-@TypeConverters(BitmapConverter::class)
+@Database(entities = [LoginUser::class], version = 1, exportSchema = false)
 abstract class LoginDatabase: RoomDatabase() {
     abstract fun loginUserDao(): LoginUserDao
 
@@ -17,9 +16,9 @@ abstract class LoginDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: LoginDatabase? = null
 
-        private val migration_1_2: Migration = object : Migration(1, 2) {
+        private val migration_2_3: Migration = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE HiltLogIn ADD COLUMN userpic TEXT DEFAULT ''")
+                database.execSQL("ALTER TABLE HiltLogIn ADD COLUMN userpic Bitmap DEFAULT ''")
             }
         }
 
@@ -28,9 +27,9 @@ abstract class LoginDatabase: RoomDatabase() {
 
             synchronized(this) {
                 INSTANCE = Room
-                    .databaseBuilder(context, LoginDatabase::class.java, "HILT_DATABASE")
-                    //.fallbackToDestructiveMigration()
-                    .addMigrations(migration_1_2)
+                    .databaseBuilder(context, LoginDatabase::class.java, "HILT_DB")
+                    .fallbackToDestructiveMigration()
+                    //.addMigrations(migration_2_3)
                     .allowMainThreadQueries()
                     .build()
 

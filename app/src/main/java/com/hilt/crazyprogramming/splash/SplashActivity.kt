@@ -25,11 +25,28 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import android.content.ContentResolver
 import android.graphics.ImageDecoder
 import android.media.Image
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.Exception
 
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("SplashActivity", "onStop called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("SplashActivity", "onResume called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("SplashActivity", "onDestroy called")
     }
 }
