@@ -1,13 +1,19 @@
 package com.hilt.crazyprogramming.network
 
+import com.google.gson.JsonObject
 import com.hilt.crazyprogramming.imgRetro2.model.PostUser
+import com.hilt.crazyprogramming.imgRetro2.model.PostUserResponse
 import com.hilt.crazyprogramming.model.postById.PostById
 import com.hilt.crazyprogramming.model.user.User
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
+import okhttp3.RequestBody
+
+import okhttp3.MultipartBody
+
+import okhttp3.ResponseBody
+import retrofit2.Call
+
 
 interface ApiService {
     @GET("/users")
@@ -17,5 +23,9 @@ interface ApiService {
     suspend fun getPostById(@Path("id") postId: Int) : Response<PostById>
 
     @POST("/posts")
-    suspend fun postUser(@Body postUser: PostUser) : Response<PostUser>
+    suspend fun postUser(@Body jsonObject: JsonObject) : Response<PostUserResponse>
+
+    @Multipart
+    @POST("/posts")
+    suspend fun postImage(@Part image: MultipartBody.Part?, @Part("name") name: RequestBody?): Call<ResponseBody?>?
 }

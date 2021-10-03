@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.hilt.crazyprogramming.imgRetro2.model.PostUser
+import com.hilt.crazyprogramming.imgRetro2.model.PostUserResponse
 import com.hilt.crazyprogramming.imgRetro2.repo.UploadRepository
 import com.hilt.crazyprogramming.network.ApiEmptyResponse
 import com.hilt.crazyprogramming.network.ApiErrorResponse
@@ -20,9 +21,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UploadViewModel @Inject constructor(@ApplicationContext context: Context, private val uploadRepository: UploadRepository): BaseViewModel(context as Application) {
-    val postUserInfo = MutableLiveData<PostUser>()
+    val postUserInfo = MutableLiveData<PostUserResponse>()
 
-    fun postUserViewModel(postUser: PostUser): LiveData<PostUser> {
+    fun postUserViewModel(postUser: PostUser): LiveData<PostUserResponse> {
         if (checkNetworkStatus()) {
             apiCallStatus.postValue("LOADING")
 
