@@ -84,12 +84,12 @@ class SplashFragment : Fragment() {
             loginViewModel.deleteUserListsVM(requireContext())
         }
 
-        btnUserList.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_userListFragment)
+        btnDashBoard.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_dashBoardFragment)
         }
 
         btnUpload.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_uploadFragment)
+            // Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_uploadFragment)
         }
 
         // get data from db when using name search
@@ -130,7 +130,7 @@ class SplashFragment : Fragment() {
                 edtPassword.error = "Please enter the password"
             }
             else -> {
-                //val image = (imgProfile.drawable as BitmapDrawable).bitmap
+                // val image = (imgProfile.drawable as BitmapDrawable).bitmap
                 val image = BitmapFactory.decodeFile(compressImageFile.toString())
 
                 val stream = ByteArrayOutputStream()

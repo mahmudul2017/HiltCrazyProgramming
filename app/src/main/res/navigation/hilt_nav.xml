@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_splashFragment_to_uploadFragment"
             app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_coroutinesFragment"
+            app:destination="@id/coroutinesFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
@@ -27,4 +33,24 @@
         android:name="com.hilt.crazyprogramming.imgRetro2.view.UploadFragment"
         android:label="fragment_upload"
         tools:layout="@layout/fragment_upload" />
+    <fragment
+        android:id="@+id/coroutinesFragment"
+        android:name="com.hilt.crazyprogramming.coroutines.CoroutinesFragment"
+        android:label="fragment_coroutines"
+        tools:layout="@layout/fragment_coroutines" />
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="com.hilt.crazyprogramming.dashboard.DashBoardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashBoardFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_coroutinesFragment"
+            app:destination="@id/coroutinesFragment" />
+    </fragment>
 </navigation>

@@ -106,12 +106,12 @@
             app:backgroundTint="@null" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnUserList"
+            android:id="@+id/btnDashBoard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="42dp"
             android:background="@drawable/rounded_button"
-            android:text="List of Users"
+            android:text="DashBoard"
             android:textAllCaps="false"
             android:textColor="@color/teal_700"
             android:textSize="18sp"
@@ -119,6 +119,7 @@
             app:backgroundTint="@null" />
 
         <com.google.android.material.button.MaterialButton
+            android:visibility="gone"
             android:id="@+id/btnUpload"
             android:layout_width="100dp"
             android:layout_height="40dp"

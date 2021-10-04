@@ -12,8 +12,8 @@ interface LoginUserDao {
     @Query("SELECT * FROM HiltDatabase WHERE username = :username")
     fun getLoginDetails(username: String): LiveData<LoginUser>
 
-    /*@Query("SELECT * FROM HiltLogIn")
-    fun getUserLists(): LiveData<List<LoginUser>>*/
+    /* @Query("SELECT * FROM HiltLogIn")
+    fun getUserLists(): LiveData<List<LoginUser>> */
 
     @Query("SELECT * FROM HiltDatabase")
     fun getUserLists(): List<LoginUser>
