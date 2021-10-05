@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/custom_progressbar.xml" value="0.27794871794871795" />
         <entry key="app/src/main/res/drawable/ic_comment.xml" value="0.28703703703703703" />
         <entry key="app/src/main/res/drawable/ic_password.xml" value="0.28703703703703703" />
         <entry key="app/src/main/res/drawable/rounded_bg_error.xml" value="0.2964102564102564" />
@@ -18,7 +19,8 @@
         <entry key="app/src/main/res/layout/dropdown_item_view.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/fragment_coroutines.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.28489583333333335" />
-        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_progress.xml" value="0.26614583333333336" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/fragment_userlist.xml" value="0.2767210144927536" />
         <entry key="app/src/main/res/layout/toast_custom_error.xml" value="0.28489583333333335" />

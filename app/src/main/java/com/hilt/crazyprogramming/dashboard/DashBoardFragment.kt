@@ -35,6 +35,9 @@ class DashBoardFragment : Fragment() {
                 "Upload Fragment" ->
                     Navigation.findNavController(it).navigate(R.id.action_dashBoardFragment_to_uploadFragment)
 
+                "Progress Fragment" ->
+                    Navigation.findNavController(it).navigate(R.id.action_dashBoardFragment_to_progressFragment)
+
                 else ->
                     showErrorToast(requireContext(), "No Action Needed !")
             }

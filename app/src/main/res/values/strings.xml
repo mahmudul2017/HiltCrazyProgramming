@@ -9,5 +9,6 @@
         <item>Coroutines Fragment</item>
         <item>UserList Fragment</item>
         <item>Upload Fragment</item>
+        <item>Progress Fragment</item>
     </string-array>
 </resources>

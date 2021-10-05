@@ -37,7 +37,11 @@
         android:id="@+id/coroutinesFragment"
         android:name="com.hilt.crazyprogramming.coroutines.CoroutinesFragment"
         android:label="fragment_coroutines"
-        tools:layout="@layout/fragment_coroutines" />
+        tools:layout="@layout/fragment_coroutines" >
+        <action
+            android:id="@+id/action_coroutinesFragment_to_progressFragment"
+            app:destination="@id/progressFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dashBoardFragment"
         android:name="com.hilt.crazyprogramming.dashboard.DashBoardFragment"
@@ -52,5 +56,13 @@
         <action
             android:id="@+id/action_dashBoardFragment_to_coroutinesFragment"
             app:destination="@id/coroutinesFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_progressFragment"
+            app:destination="@id/progressFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.hilt.crazyprogramming.coroutines.ProgressFragment"
+        android:label="fragment_progress"
+        tools:layout="@layout/fragment_progress" />
 </navigation>

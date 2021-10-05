@@ -23,6 +23,8 @@
         <activity
             android:name=".view.PostByIdActivity"
             android:exported="true" />
+        <service
+            android:name=".service.ProgressService" />
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
