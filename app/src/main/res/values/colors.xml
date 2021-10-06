@@ -13,4 +13,5 @@
     <color name="colorRed">#F81616</color>
     <color name="colorGreenTheme">#0AB939</color>
     <color name="warningColor">#FBC901</color>
+    <color name="colorViewPager">#8BC34A</color>
 </resources>

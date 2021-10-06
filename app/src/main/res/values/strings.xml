@@ -10,5 +10,6 @@
         <item>UserList Fragment</item>
         <item>Upload Fragment</item>
         <item>Progress Fragment</item>
+        <item>ViewPager Fragment</item>
     </string-array>
 </resources>

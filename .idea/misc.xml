@@ -17,12 +17,15 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2848731884057971" />
         <entry key="app/src/main/res/layout/dialog_profile_pic.xml" value="0.2807971014492754" />
         <entry key="app/src/main/res/layout/dropdown_item_view.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/fragment_android.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/fragment_coroutines.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.28489583333333335" />
+        <entry key="app/src/main/res/layout/fragment_ios.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/fragment_progress.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/fragment_userlist.xml" value="0.2767210144927536" />
+        <entry key="app/src/main/res/layout/fragment_viewpager.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/toast_custom_error.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/toast_custom_green.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/toast_custom_warning.xml" value="0.26614583333333336" />

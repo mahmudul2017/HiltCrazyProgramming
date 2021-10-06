@@ -38,6 +38,9 @@ class DashBoardFragment : Fragment() {
                 "Progress Fragment" ->
                     Navigation.findNavController(it).navigate(R.id.action_dashBoardFragment_to_progressFragment)
 
+                "ViewPager Fragment" ->
+                    Navigation.findNavController(it).navigate(R.id.action_dashBoardFragment_to_viewPagerFragment)
+
                 else ->
                     showErrorToast(requireContext(), "No Action Needed !")
             }

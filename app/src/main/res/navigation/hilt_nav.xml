@@ -59,10 +59,18 @@
         <action
             android:id="@+id/action_dashBoardFragment_to_progressFragment"
             app:destination="@id/progressFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/progressFragment"
         android:name="com.hilt.crazyprogramming.coroutines.ProgressFragment"
         android:label="fragment_progress"
         tools:layout="@layout/fragment_progress" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.hilt.crazyprogramming.viewPager.view.ViewPagerFragment"
+        android:label="fragment_viewpager"
+        tools:layout="@layout/fragment_viewpager" />
 </navigation>
